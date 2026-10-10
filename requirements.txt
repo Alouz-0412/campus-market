@@ -1,0 +1,7 @@
+# 全部为纯 Python 包，无需编译器
+# 本机 D:\python\python.exe 已预装 fastapi/uvicorn/pillow/python-multipart/jinja2
+fastapi>=0.110
+uvicorn>=0.27
+pymysql>=1.1
+python-multipart>=0.0.9
+Pillow>=9.0

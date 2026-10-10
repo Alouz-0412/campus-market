@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>消息 · 校园集市</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+<body>
+  <header id="topbar"></header>
+
+  <main class="page">
+    <div class="container">
+      <div class="row-between mb-16">
+        <div>
+          <h1>消息中心</h1>
+          <p class="text-muted" style="margin:4px 0 0">和同学聊聊交易的细节吧～</p>
+        </div>
+        <button class="btn btn-default btn-sm" id="refreshBtn">🔄 刷新</button>
+      </div>
+
+      <div class="chat-layout">
+        <aside class="conv-list" id="convList">
+          <div class="loading"><div class="spinner"></div>加载中…</div>
+        </aside>
+        <section class="chat-main" id="chatMain">
+          <div class="empty" style="margin:auto">
+            <div class="emoji">💬</div>
+            <div class="title">选择一个会话开始聊天</div>
+            <div>或者在商品页点击「联系卖家」发起对话</div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer"></footer>
+  <script type="module" src="assets/js/messages.js"></script>
+</body>
+</html>

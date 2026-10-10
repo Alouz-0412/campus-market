@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>注册 · 校园集市</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+<body>
+  <header id="topbar"></header>
+
+  <div class="auth-wrap">
+    <div class="auth-card wide">
+      <div class="auth-head">
+        <div class="mark">🌱</div>
+        <h1>加入校园集市</h1>
+        <p>注册一个账号，让你的闲置流动起来</p>
+      </div>
+
+      <form id="registerForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="username">用户名<span class="req">*</span></label>
+            <input class="input" id="username" autocomplete="username" placeholder="3-20 位字母数字下划线" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="nickname">昵称<span class="req">*</span></label>
+            <input class="input" id="nickname" placeholder="同学们看到的名字" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">邮箱<span class="req">*</span></label>
+          <input class="input" id="email" type="email" autocomplete="email" placeholder="you@campus.edu.cn" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="password">密码<span class="req">*</span></label>
+            <input class="input" id="password" type="password" autocomplete="new-password" placeholder="至少 6 位" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="password2">确认密码<span class="req">*</span></label>
+            <input class="input" id="password2" type="password" autocomplete="new-password" placeholder="再输一次" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="phone">手机号</label>
+            <input class="input" id="phone" placeholder="选填，方便买家联系" maxlength="20">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="campus">校区 / 学院</label>
+            <input class="input" id="campus" placeholder="选填，如：南校区 / 计算机学院" maxlength="50">
+          </div>
+        </div>
+
+        <div class="form-error" id="formError"></div>
+        <button class="btn btn-primary btn-lg btn-block" type="submit" id="submitBtn">注 册</button>
+      </form>
+
+      <div class="auth-foot">
+        已经有账号了？<a href="login.html">直接登录</a>
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer"></footer>
+  <script type="module" src="assets/js/auth.js"></script>
+</body>
+</html>

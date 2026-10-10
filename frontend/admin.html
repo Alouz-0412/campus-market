@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>后台管理 · 校园集市</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+<body>
+  <header id="topbar"></header>
+
+  <main class="page">
+    <div class="container">
+      <div class="row-between mb-16">
+        <div>
+          <h1>后台管理</h1>
+          <p class="text-muted" style="margin:4px 0 0">平台数据总览与内容治理</p>
+        </div>
+        <button class="btn btn-default btn-sm" id="refreshBtn">🔄 刷新数据</button>
+      </div>
+
+      <div class="admin-shell">
+        <aside class="admin-nav" id="adminNav">
+          <button class="active" data-panel="overview">📊 数据总览</button>
+          <button data-panel="users">👥 用户管理</button>
+          <button data-panel="products">🛍 商品管理</button>
+          <button data-panel="orders">📦 订单管理</button>
+        </aside>
+
+        <div class="admin-main">
+          <!-- 数据总览 -->
+          <section class="adm-panel active" id="panel-overview">
+            <div class="stat-grid" id="statGrid"></div>
+
+            <div class="chart-grid mt-16">
+              <div class="card card-pad">
+                <h3 class="mb-16">近 7 天趋势</h3>
+                <div id="trendChart"></div>
+              </div>
+              <div class="card card-pad">
+                <h3 class="mb-16">分类商品排行</h3>
+                <div id="categoryRank"></div>
+              </div>
+            </div>
+
+            <div class="chart-grid mt-16">
+              <div class="card card-pad">
+                <h3 class="mb-16">🏆 热门卖家</h3>
+                <div id="topSellers"></div>
+              </div>
+              <div class="card card-pad">
+                <h3 class="mb-16">🕒 最近订单</h3>
+                <div id="recentOrders"></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 用户管理 -->
+          <section class="adm-panel" id="panel-users">
+            <div class="toolbar">
+              <input class="input width-sm" id="userKeyword" placeholder="搜索用户名 / 昵称 / 校区">
+              <button class="btn btn-primary btn-sm" id="userSearchBtn">搜索</button>
+              <button class="btn btn-default btn-sm" id="userResetBtn">重置</button>
+              <span class="spacer"></span>
+              <span class="text-muted" id="userCount"></span>
+            </div>
+            <div class="table-wrap card"><table class="table" id="userTable"></table></div>
+            <div class="pager" id="userPager"></div>
+          </section>
+
+          <!-- 商品管理 -->
+          <section class="adm-panel" id="panel-products">
+            <div class="toolbar">
+              <input class="input width-sm" id="productKeyword" placeholder="搜索商品标题 / 描述">
+              <select class="select" id="productStatusSel" style="width:150px">
+                <option value="">全部状态</option>
+                <option value="on_sale">在售</option>
+                <option value="reserved">已预订</option>
+                <option value="sold">已售出</option>
+                <option value="off_shelf">已下架</option>
+              </select>
+              <button class="btn btn-primary btn-sm" id="productSearchBtn">搜索</button>
+              <button class="btn btn-default btn-sm" id="productResetBtn">重置</button>
+              <span class="spacer"></span>
+              <span class="text-muted" id="productCount"></span>
+            </div>
+            <div class="table-wrap card"><table class="table" id="productTable"></table></div>
+            <div class="pager" id="productPager"></div>
+          </section>
+
+          <!-- 订单管理 -->
+          <section class="adm-panel" id="panel-orders">
+            <div class="toolbar">
+              <input class="input width-sm" id="orderKeyword" placeholder="搜索订单号 / 商品 / 用户">
+              <select class="select" id="orderStatusSel" style="width:150px">
+                <option value="">全部状态</option>
+                <option value="pending">待确认</option>
+                <option value="accepted">已接单</option>
+                <option value="completed">已完成</option>
+                <option value="cancelled">已取消</option>
+              </select>
+              <button class="btn btn-primary btn-sm" id="orderSearchBtn">搜索</button>
+              <button class="btn btn-default btn-sm" id="orderResetBtn">重置</button>
+              <span class="spacer"></span>
+              <span class="text-muted" id="orderCount"></span>
+            </div>
+            <div class="table-wrap card"><table class="table" id="orderTable"></table></div>
+            <div class="pager" id="orderPager"></div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="footer"></footer>
+  <script type="module" src="assets/js/admin.js"></script>
+</body>
+</html>

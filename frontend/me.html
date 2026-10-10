@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人中心 · 校园集市</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+<body>
+  <header id="topbar"></header>
+
+  <main class="page">
+    <div class="container">
+      <!-- 资料头部 -->
+      <div class="profile-header" id="profileHeader">
+        <div class="spinner" style="border-top-color:#fff"></div>
+      </div>
+
+      <!-- 标签页 -->
+      <div class="tabs" id="tabs">
+        <button class="tab active" data-tab="orders">📦 我的订单 <span class="count" id="orderCount"></span></button>
+        <button class="tab" data-tab="products">📋 我发布的 <span class="count" id="productCount"></span></button>
+        <button class="tab" data-tab="favorites">❤️ 我的收藏 <span class="count" id="favCount"></span></button>
+        <button class="tab" data-tab="profile">⚙️ 账号资料</button>
+      </div>
+
+      <!-- 订单 -->
+      <section class="tab-panel active" id="panel-orders">
+        <div class="toolbar">
+          <div class="sort-group" id="roleFilter">
+            <button class="sort-btn active" data-role="all">全部</button>
+            <button class="sort-btn" data-role="buyer">我买到的</button>
+            <button class="sort-btn" data-role="seller">我卖出的</button>
+          </div>
+          <select class="select" id="orderStatus" style="width:150px;height:36px">
+            <option value="">全部状态</option>
+            <option value="pending">待卖家确认</option>
+            <option value="accepted">待交易完成</option>
+            <option value="completed">已完成</option>
+            <option value="cancelled">已取消</option>
+          </select>
+          <span class="spacer"></span>
+          <span class="text-muted" id="orderHint"></span>
+        </div>
+        <div id="orderList"></div>
+        <div class="pager" id="orderPager"></div>
+      </section>
+
+      <!-- 我发布的 -->
+      <section class="tab-panel" id="panel-products">
+        <div class="toolbar">
+          <div class="sort-group" id="productStatusFilter">
+            <button class="sort-btn active" data-status="all">全部</button>
+            <button class="sort-btn" data-status="on_sale">在售</button>
+            <button class="sort-btn" data-status="reserved">已预订</button>
+            <button class="sort-btn" data-status="sold">已售出</button>
+            <button class="sort-btn" data-status="off_shelf">已下架</button>
+          </div>
+          <span class="spacer"></span>
+          <a class="btn btn-primary btn-sm" href="publish.html">＋ 发布新商品</a>
+        </div>
+        <div id="myProductList"></div>
+        <div class="pager" id="myProductPager"></div>
+      </section>
+
+      <!-- 我的收藏 -->
+      <section class="tab-panel" id="panel-favorites">
+        <div class="product-grid" id="favGrid"></div>
+        <div class="pager" id="favPager"></div>
+      </section>
+
+      <!-- 账号资料 -->
+      <section class="tab-panel" id="panel-profile">
+        <div class="row" style="align-items:flex-start;gap:20px">
+          <div class="card card-pad" style="flex:1;min-width:0">
+            <h3 class="mb-16">基本资料</h3>
+            <div class="row-center mb-16" style="gap:16px">
+              <div id="avatarPreview"></div>
+              <div>
+                <button class="btn btn-default btn-sm" id="changeAvatarBtn">更换头像</button>
+                <div class="form-hint">支持 jpg / png，建议正方形</div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">用户名</label>
+                <input class="input" id="pUsername" disabled>
+              </div>
+              <div class="form-group">
+                <label class="form-label">昵称</label>
+                <input class="input" id="pNickname" maxlength="20">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">邮箱</label>
+                <input class="input" id="pEmail" type="email" maxlength="120">
+              </div>
+              <div class="form-group">
+                <label class="form-label">手机号</label>
+                <input class="input" id="pPhone" maxlength="20">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">校区 / 学院</label>
+              <input class="input" id="pCampus" maxlength="60">
+            </div>
+            <div class="form-group">
+              <label class="form-label">个人简介</label>
+              <textarea class="textarea" id="pBio" maxlength="120" style="min-height:80px"></textarea>
+            </div>
+            <div class="form-error" id="profileError"></div>
+            <button class="btn btn-primary" id="saveProfileBtn">保存资料</button>
+          </div>
+
+          <div class="card card-pad" style="width:330px;flex-shrink:0">
+            <h3 class="mb-16">修改密码</h3>
+            <div class="form-group">
+              <label class="form-label">当前密码</label>
+              <input class="input" id="oldPassword" type="password" autocomplete="current-password">
+            </div>
+            <div class="form-group">
+              <label class="form-label">新密码</label>
+              <input class="input" id="newPassword" type="password" autocomplete="new-password" placeholder="至少 6 位">
+            </div>
+            <div class="form-group">
+              <label class="form-label">确认新密码</label>
+              <input class="input" id="newPassword2" type="password" autocomplete="new-password">
+            </div>
+            <div class="form-error" id="pwdError"></div>
+            <button class="btn btn-default btn-block" id="changePwdBtn">修改密码</button>
+            <div class="form-hint mt-8">修改成功后需要重新登录。</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer id="footer"></footer>
+  <input type="file" id="avatarInput" accept="image/*" hidden>
+  <script type="module" src="assets/js/me.js"></script>
+</body>
+</html>

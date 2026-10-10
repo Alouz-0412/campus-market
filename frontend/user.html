@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用户主页 · 校园集市</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+<body>
+  <header id="topbar"></header>
+
+  <main class="page">
+    <div class="container">
+      <div id="userHeader"></div>
+
+      <div class="tabs" id="tabs">
+        <button class="tab active" data-tab="products">🛍 TA 的在售商品</button>
+        <button class="tab" data-tab="reviews">⭐ TA 收到的评价</button>
+      </div>
+
+      <section class="tab-panel active" id="panel-products">
+        <div class="product-grid" id="userProducts"></div>
+        <div class="pager" id="userProductPager"></div>
+      </section>
+
+      <section class="tab-panel" id="panel-reviews">
+        <div class="card card-pad" id="userReviews"></div>
+        <div class="pager" id="userReviewPager"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer id="footer"></footer>
+  <script type="module" src="assets/js/user.js"></script>
+</body>
+</html>

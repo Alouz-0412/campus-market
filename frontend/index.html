@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>校园集市 · 校园二手交易平台</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+<body>
+  <header id="topbar"></header>
+
+  <main class="page">
+    <div class="container">
+      <!-- Hero 横幅（无筛选条件时显示） -->
+      <section class="hero" id="hero">
+        <h1>让闲置流动起来 🌱</h1>
+        <p>校园里的二手好物交易平台 —— 教材、数码、生活用品，同校直聊，当面交易，省心又省钱。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="publish.html">＋ 发布我的闲置</a>
+          <button class="btn btn-ghost btn-lg" id="heroBrowse">随便逛逛 →</button>
+        </div>
+        <div class="hero-stats" id="heroStats">
+          <div><div class="num" data-stat="products">—</div><div class="label">在售商品</div></div>
+          <div><div class="num" data-stat="users">—</div><div class="label">注册用户</div></div>
+          <div><div class="num" data-stat="completed">—</div><div class="label">成功交易</div></div>
+        </div>
+      </section>
+
+      <!-- 分类导航 -->
+      <section class="mb-16">
+        <div class="row-between mb-16">
+          <h2>全部类目</h2>
+        </div>
+        <div class="category-grid" id="categoryGrid"></div>
+      </section>
+
+      <!-- 商品列表 -->
+      <section class="mt-24">
+        <div class="row-between mb-16">
+          <h2 id="listTitle">最新发布</h2>
+          <span class="text-muted" id="listCount"></span>
+        </div>
+
+        <div class="row filter-layout" style="align-items:flex-start">
+          <!-- 侧边筛选 -->
+          <aside class="filter-side">
+            <div class="card card-pad mb-16" id="campusCard">
+              <div class="filter-title">校区</div>
+              <label class="check" id="campusFirstWrap">
+                <input type="checkbox" id="campusFirst">
+                <span>🏫 同校区优先</span>
+              </label>
+              <div class="form-hint" id="campusHint"></div>
+            </div>
+            <div class="card card-pad mb-16">
+              <div class="filter-title">成色</div>
+              <div id="conditionFilter"></div>
+            </div>
+            <div class="card card-pad mb-16">
+              <div class="filter-title">价格区间</div>
+              <div class="input-group">
+                <input class="input" type="number" min="0" id="minPrice" placeholder="最低" style="height:36px;padding:0 10px">
+                <span class="text-muted">—</span>
+                <input class="input" type="number" min="0" id="maxPrice" placeholder="最高" style="height:36px;padding:0 10px">
+              </div>
+              <button class="btn btn-default btn-sm btn-block mt-8" id="applyPrice">应用价格</button>
+            </div>
+            <div class="card card-pad">
+              <div class="filter-title">快捷入口</div>
+              <div class="filter-item" id="quickMine">📋 我发布的商品</div>
+              <div class="filter-item" id="quickFav">❤️ 我的收藏</div>
+              <div class="filter-item" id="quickReset">🔄 重置全部筛选</div>
+            </div>
+          </aside>
+
+          <!-- 商品区 -->
+          <div style="flex:1;min-width:0">
+            <div class="toolbar">
+              <span class="text-secondary fw-600">排序</span>
+              <div class="sort-group" id="sortGroup">
+                <button class="sort-btn active" data-sort="latest">最新</button>
+                <button class="sort-btn" data-sort="popular">最热</button>
+                <button class="sort-btn" data-sort="price_asc">价格↑</button>
+                <button class="sort-btn" data-sort="price_desc">价格↓</button>
+                <button class="sort-btn" data-sort="favorite">收藏多</button>
+              </div>
+              <span class="spacer"></span>
+              <span class="tag tag-primary hidden" id="campusTag">🏫 同校优先</span>
+              <span class="tag tag-primary hidden" id="keywordTag"></span>
+            </div>
+
+            <div class="product-grid" id="productGrid"></div>
+            <div class="pager" id="pager"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer id="footer"></footer>
+
+  <script type="module" src="assets/js/home.js"></script>
+</body>
+</html>

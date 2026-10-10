@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>发布闲置 · 校园集市</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+<body>
+  <header id="topbar"></header>
+
+  <main class="page">
+    <div class="container" style="max-width:860px">
+      <div class="row-between mb-16">
+        <div>
+          <h1 id="pageTitle">发布闲置</h1>
+          <p class="text-muted" style="margin:4px 0 0">认真填写商品信息，更容易被同学看到哦～</p>
+        </div>
+        <a class="btn btn-default" href="me.html#products">我发布的商品</a>
+      </div>
+
+      <form id="publishForm" class="card card-pad" novalidate>
+        <div class="form-group">
+          <label class="form-label">商品图片<span class="req">*</span></label>
+          <div class="uploader" id="uploader">
+            <div class="upload-box" id="uploadBox">
+              <span class="plus">＋</span>
+              <span>上传图片</span>
+            </div>
+          </div>
+          <input type="file" id="fileInput" accept="image/*" multiple hidden>
+          <div class="form-hint">最多 9 张，<b>按住图片拖动即可调整顺序</b>，第一张作为封面；支持 jpg / png / webp，单张不超过 5 MB</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="title">商品标题<span class="req">*</span></label>
+          <input class="input" id="title" maxlength="60" placeholder="例如：九成新 高等数学教材（同济版）">
+          <div class="form-hint"><span id="titleCount">0</span>/60</div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="category">商品分类<span class="req">*</span></label>
+            <select class="select" id="category"><option value="">请选择分类</option></select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="tradePlace">交易地点</label>
+            <input class="input" id="tradePlace" maxlength="60" placeholder="例如：图书馆一楼大厅">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="price">出售价格（元）<span class="req">*</span></label>
+            <input class="input" id="price" type="number" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="originalPrice">原价（元）</label>
+            <input class="input" id="originalPrice" type="number" min="0" step="0.01" placeholder="选填，用于显示折扣">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">成色<span class="req">*</span></label>
+          <div class="seg-group" id="conditionGroup">
+            <button type="button" class="seg" data-v="1">全新</button>
+            <button type="button" class="seg active" data-v="2">几乎全新</button>
+            <button type="button" class="seg" data-v="3">轻微使用痕迹</button>
+            <button type="button" class="seg" data-v="4">明显使用痕迹</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="description">商品描述</label>
+          <textarea class="textarea" id="description" maxlength="2000"
+            placeholder="介绍一下商品的新旧程度、购买时间、有无瑕疵、为什么出售…（2000 字以内）"></textarea>
+          <div class="form-hint"><span id="descCount">0</span>/2000</div>
+        </div>
+
+        <div class="form-error" id="formError"></div>
+
+        <div class="row" style="gap:12px;margin-top:6px">
+          <button class="btn btn-primary btn-lg" type="submit" id="submitBtn" style="flex:1">发布商品</button>
+          <button class="btn btn-default btn-lg" type="reset" id="resetBtn">重置</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer id="footer"></footer>
+  <script type="module" src="assets/js/publish.js"></script>
+</body>
+</html>

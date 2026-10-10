@@ -1,0 +1,20 @@
+# ---- 环境配置：含数据库密码和密钥，绝对不能提交 ----
+.env
+.env.local
+
+# ---- 运行时数据：上传的图片等，服务启动时会自动创建 ----
+data/
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# ---- 编辑器 / 系统 ----
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log

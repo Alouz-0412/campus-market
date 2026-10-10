@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录 · 校园集市</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+</head>
+<body>
+  <header id="topbar"></header>
+
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-head">
+        <div class="mark">🎓</div>
+        <h1>欢迎回来</h1>
+        <p>登录后即可发布闲置、收藏好物、与同学私聊</p>
+      </div>
+
+      <form id="loginForm" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="account">用户名 / 邮箱</label>
+          <input class="input" id="account" name="account" autocomplete="username" placeholder="请输入用户名或邮箱" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="password">密码</label>
+          <input class="input" id="password" name="password" type="password" autocomplete="current-password" placeholder="请输入密码" required>
+        </div>
+        <div class="form-error" id="formError"></div>
+        <button class="btn btn-primary btn-lg btn-block" type="submit" id="submitBtn">登 录</button>
+      </form>
+
+      <div class="demo-tip">
+        <div class="fw-600 mb-16" style="margin-bottom:6px">🎁 演示账号（点击即可填入）</div>
+        <div>管理员：<code data-fill="admin|admin123">admin</code> / <code data-fill="admin|admin123">admin123</code></div>
+        <div>普通用户：<code data-fill="xiaoming|123456">xiaoming</code> / <code data-fill="xiaoming|123456">123456</code></div>
+      </div>
+
+      <div class="auth-foot">
+        还没有账号？<a href="register.html">立即注册</a>
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer"></footer>
+  <script type="module" src="assets/js/auth.js"></script>
+</body>
+</html>
